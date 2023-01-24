@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "ebec27c1-bcfa-48aa-bc7d-5bb223d27585",
+		"name": "postman-collection-onoff",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create  Auth Credentials",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"userId\": 1570621,\r\n \"token\": \"test\",\r\n \"refreshToken\": \"11679403:15706214:3edbd8ecbb3e9faecf7e31aea8916bff869e0ea2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/setup/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"setup",
+						"auth"
+					]
+				},
+				"description": "Create auth credentials with userId, token, refreshToken"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"userId\": 15706211\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/setup/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"setup",
+						"auth"
+					]
+				},
+				"description": "Delete user by userId"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Call Log",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 15706214,\r\n    \"subject\": \"Phone call log request\",\r\n    \"duration\": 30,\r\n    \"outcome\": \"connected\",\r\n    \"fromNumber\": \"+1234556789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pipedrive/call-log",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pipedrive",
+						"call-log"
+					]
+				},
+				"description": "Create Call Log with userId and required properties"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Call Logs",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pipedrive/call-log?userId=15706214",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pipedrive",
+						"call-log"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "15706214"
+						}
+					]
+				},
+				"description": "Get Call Logs by userId"
+			},
+			"response": []
+		},
+		{
+			"name": "Pipedrive token generator API",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "b3fd01c0d3e347d3faaee6a2e411c22350e616f5",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "4e781707a1ebe8bb",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://onoff.demo.url",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "refresh_token",
+							"value": "11679403:15706214:3edbd8ecbb3e9faecf7e31aea8916bff869e0ea2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://oauth.pipedrive.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"oauth",
+						"pipedrive",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				},
+				"description": "Pipedrive token generator end point. This end point is used for implement real data to service. The refresh token must be use to get new access token."
+			},
+			"response": []
+		},
+		{
+			"name": "Pipedrive call log list API",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7TnfCz6yHNOa67g/tMvoiVUIJkadK2qaCAmvW2+btqR8kAgGasycJwqiTzAyQb4/UE4YBVR5FeZd6no4ExgnObf+nkPzZ4/b6OIw5AjXctqhYeQ/JAjW6g/S0jRpHP2Q+hxTmNk/XCrZTg6CtVL6za7jJ9+QNPc0+jRJgyIsU007lQSnk701VL7oMY4mASHnFC5iRomT0T8axRJP2lHrvUdTzJRhRwSAEO8nsG37w7uzLAhfYLDO0DfljhrIDl5GATjC2J59HYR6yxQq4A2WfXPjMLpQn0dvpkqRAiO3AY7W802mB8dHpsulJwNk8DQHTDak1OMNv1cH9luyoQzG9E9F3DlYKXlkbpcetVyQEsM5qY2QJjxAvnS8EunNtNGVCR2Iuwo4AaJkIO7CBJOvzWY7jpHRPk1cZqm2Npkr994WGmhw9p02o0UH+HUh/3BdntpupSU+OdIesluCdIa7dqW12kdzSiX6UITUQNz2j4+3rntB56E=",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 15706214,\r\n    \"activity_id\": 1,\r\n    \"outcome\":\"connected\",\r\n    \"to_phone_number\": \"37126262626\",\r\n    \"start_time\":\"2023-01-19T01:01:01.000Z\",\r\n    \"end_time\": \"2023-01-22T18:51:06.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://onoff-demo-sandbox.pipedrive.com/v1/callLogs",
+					"protocol": "https",
+					"host": [
+						"onoff-demo-sandbox",
+						"pipedrive",
+						"com"
+					],
+					"path": [
+						"v1",
+						"callLogs"
+					]
+				},
+				"description": "This end point returns all Call Logs which are created regarding our request. You can check your call log via requesting to this end point. It requires bearer token(access_token). You can generate token from Pipedrive token generator API."
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,3 @@
+pipedrive-api:
+  auth-url: http://0.0.0.0:7070/oauth/token
+  call-log-url: http://0.0.0.0:7070/v1/callLogs
