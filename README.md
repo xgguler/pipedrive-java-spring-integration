@@ -34,7 +34,7 @@ With this application, sample use case implemented via calling Pipedrive authori
 
 ## API Definitions
 * http://localhost:8080/setup/auth
-  1. This api creates and deletes user auth credentials regarding provided request body.
+  1. This api creates and deletes user auth credentials regarding provided request body. If user is already exist it returns 400 Bad Request.
   For more details please check api collection.
 * http://localhost:8080/pipedrive/call-log
   1. API creates call log record with checking user's token whether they valid or not. 
